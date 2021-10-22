@@ -1,0 +1,14 @@
+H:\CS3-Projects\FactorialSum\FactorialSum\bin\Debug\netcoreapp3.1\FactorialSum.exe
+H:\CS3-Projects\FactorialSum\FactorialSum\bin\Debug\netcoreapp3.1\FactorialSum.deps.json
+H:\CS3-Projects\FactorialSum\FactorialSum\bin\Debug\netcoreapp3.1\FactorialSum.runtimeconfig.json
+H:\CS3-Projects\FactorialSum\FactorialSum\bin\Debug\netcoreapp3.1\FactorialSum.runtimeconfig.dev.json
+H:\CS3-Projects\FactorialSum\FactorialSum\bin\Debug\netcoreapp3.1\FactorialSum.dll
+H:\CS3-Projects\FactorialSum\FactorialSum\bin\Debug\netcoreapp3.1\FactorialSum.pdb
+H:\CS3-Projects\FactorialSum\FactorialSum\obj\Debug\netcoreapp3.1\FactorialSum.csproj.AssemblyReference.cache
+H:\CS3-Projects\FactorialSum\FactorialSum\obj\Debug\netcoreapp3.1\FactorialSum.GeneratedMSBuildEditorConfig.editorconfig
+H:\CS3-Projects\FactorialSum\FactorialSum\obj\Debug\netcoreapp3.1\FactorialSum.AssemblyInfoInputs.cache
+H:\CS3-Projects\FactorialSum\FactorialSum\obj\Debug\netcoreapp3.1\FactorialSum.AssemblyInfo.cs
+H:\CS3-Projects\FactorialSum\FactorialSum\obj\Debug\netcoreapp3.1\FactorialSum.csproj.CoreCompileInputs.cache
+H:\CS3-Projects\FactorialSum\FactorialSum\obj\Debug\netcoreapp3.1\FactorialSum.dll
+H:\CS3-Projects\FactorialSum\FactorialSum\obj\Debug\netcoreapp3.1\FactorialSum.pdb
+H:\CS3-Projects\FactorialSum\FactorialSum\obj\Debug\netcoreapp3.1\FactorialSum.genruntimeconfig.cache
