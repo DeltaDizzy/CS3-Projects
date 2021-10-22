@@ -21,3 +21,8 @@ jobs:
       run: dotnet restore FactorialSum/FactorialSum.sln
     - name: Build
       run: dotnet build --no-restore FactorialSum/FactorialSum.sln
+    - name: Upload EXE
+      uses: actions/upload-artifact@v2.2.4
+      with:
+        name: FactorialSum
+        path: /home/runner/work/CS3-Projects/CS3-Projects/FactorialSum/FactorialSum/bin/Debug/netcoreapp3.1/
