@@ -1,7 +1,7 @@
 name: SpawnHints
 
 on:
-  create
+  push
 
 jobs:
   build:
