@@ -22,7 +22,7 @@ jobs:
       run: nuget restore SpawnHints/SpawnHints.sln
       
     - name: Build
-      run: msbuild SpawnHints.sln /p:Configuration=Debug
+      run: msbuild SpawnHints/SpawnHints.sln /p:Configuration=Debug
       
     - name: Upload EXE
       uses: actions/upload-artifact@v2.2.4
