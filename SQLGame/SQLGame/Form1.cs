@@ -24,7 +24,7 @@ namespace SQLGame
         (bool, bool, bool, bool) moveState = (false, false, false, false);
         int charSpeed = 7;
         string oldstring = "";
-        MySqlConnection connection = new MySqlConnection("Server=50.62.209.85;Initial Catalog='cs3data';Username=dbaseuser;Password=Castl3H1!!;");
+        MySqlConnection connection = new MySqlConnection("Server=50.62.209.85;Initial Catalog=cs3data;Username=dbaseuser;Password=Castl3H1!!;");
         MySqlCommand command;
         DataTable dt = new DataTable();
         int rocksCount = 0;
