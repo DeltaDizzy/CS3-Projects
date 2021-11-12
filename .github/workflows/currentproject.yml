@@ -1,0 +1,31 @@
+name: SpawnHints
+
+on:
+  create
+
+jobs:
+  build:
+
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v2
+      
+    - name: Setup MSBuild Path
+      uses: warrenbuckley/Setup-MSBuild@v1
+      
+    - name: Setup NuGet
+      uses: NuGet/setup-nuget@v1.0.2
+      
+    - name: Restore NuGet Packages
+      run: nuget restore SpawnHints/SpawnHints.sln
+      
+    - name: Build
+      run: msbuild SpawnHints.sln /p:Configuration=Debug
+      
+    - name: Upload EXE
+      uses: actions/upload-artifact@v2.2.4
+      with:
+        name: SpawnHints
+        path: /home/runner/work/CS3-Projects/CS3-Projects/FactorialSum/FactorialSum/bin/Debug/netcoreapp3.1/
