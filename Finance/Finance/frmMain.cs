@@ -12,7 +12,7 @@ namespace Finance
 {
     public partial class frmMain : Form
     {
-        LinkedList<KeyValuePair<int, double>> minPaymentLookup = new LinkedList<KeyValuePair<int, double>>();
+        LinkedList<KeyValuePair<double, double>> minPaymentLookup = new LinkedList<KeyValuePair<double, double>>();
         Point lastLocation = new Point();
         bool mouseDown = false;
         int payMonths = 0;
@@ -26,33 +26,26 @@ namespace Finance
         public frmMain()
         {
             InitializeComponent();
-            minPaymentLookup.AddLast(new KeyValuePair<int, double>(10000, 0.02));
-            minPaymentLookup.AddLast(new KeyValuePair<int, double>(5000, 0.03));
-            minPaymentLookup.AddLast(new KeyValuePair<int, double>(2500, 0.04));
-            minPaymentLookup.AddLast(new KeyValuePair<int, double>(1000, 0.05));
-            minPaymentLookup.AddLast(new KeyValuePair<int, double>(500, 0.06));
-            minPaymentLookup.AddLast(new KeyValuePair<int, double>(25, 1));
+            minPaymentLookup.AddLast(new KeyValuePair<double, double>(10000, 0.02));
+            minPaymentLookup.AddLast(new KeyValuePair<double, double>(5000, 0.03));
+            minPaymentLookup.AddLast(new KeyValuePair<double, double>(2500, 0.04));
+            minPaymentLookup.AddLast(new KeyValuePair<double, double>(1000, 0.05));
+            minPaymentLookup.AddLast(new KeyValuePair<double, double>(500, 0.06));
+            minPaymentLookup.AddLast(new KeyValuePair<double, double>(25, 1));
+            minPaymentLookup.AddLast(new KeyValuePair<double, double>(0, 1));
 
 
             calculate = () =>
             {
-                debtRemaining = double.Parse(txtInitialDebt.Text);
-                double minPayPercent = minPaymentLookup
-                .Where(item => int.Parse(txtInitialDebt.Text) >= item.Key)
-                .Select(item => item)
-                .FirstOrDefault()
-                .Value;
-                if (debtRemaining <= 25)
-                {
-                    minPayPercent = minPaymentLookup.Last().Value;
-                }
+                double debtRemaining = double.Parse(txtInitialDebt.Text);
                 double interestRate = double.Parse(txtInterestRate.Text) / 100;
 
                 while (debtRemaining > 0)
                 {
-                    double principalPaid = debtRemaining * minPayPercent;
+                    double minPayRate = minPayPercentEval(debtRemaining);
+                    double principalPaid = debtRemaining * minPayRate;
                     debtRemaining -= principalPaid;
-                    totalPaid = debtRemaining * (1 + (interestRate / 100 / 12));
+                    totalPaid += debtRemaining * (1 + (interestRate / 100 / 12));
                     payMonths++;
                 }
 
@@ -62,23 +55,38 @@ namespace Finance
             resultsTask = new Task<(double, double, int)>(calculate);
         }
 
-        
+        private double minPayPercentEval(double debtRemaining)
+        {
+            double minPayPercent = minPaymentLookup
+                .Where(item => debtRemaining >= item.Key)
+                .Select(item => item)
+                .FirstOrDefault()
+                .Value;
+            return minPayPercent;
+        }
 
         private void btnCalculate_Click(object sender, EventArgs e)
         {
             btnCalculate.Enabled = false;
             calculateAsync();
-            txtInterestPaidResult.Text = results.Item1.ToString();
-            txtTotalPaidResult.Text = results.Item2.ToString();
-            txtTimeToPayResult.Text = results.Item3.ToString();
+            btnCalculate.Enabled = true;
+            txtInterestPaidResult.Text = string.Format("${0:C2}", results.Item1.ToString());
+            txtTotalPaidResult.Text = string.Format("${0:C2}", results.Item2.ToString());
+            txtTimeToPayResult.Text = $"{results.Item3} months";
         }
 
         private async void calculateAsync()
         {
             results = await Task.Run(calculate);
+            ResetVars();
         }
 
-       
+        private void ResetVars()
+        {
+            totalPaid = 0;
+            payMonths = 0;
+            interestPaid = 0;
+        }
 
         private void chtInterest_MouseUp(object sender, MouseEventArgs e)
         {
