@@ -149,25 +149,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="frmhelp.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmhelp.Designer.cs">
-      <DependentUpon>frmhelp.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmSchedule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSchedule.Designer.cs">
+      <DependentUpon>frmSchedule.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="frmhelp.resx">
-      <DependentUpon>frmhelp.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSchedule.resx">
+      <DependentUpon>frmSchedule.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">

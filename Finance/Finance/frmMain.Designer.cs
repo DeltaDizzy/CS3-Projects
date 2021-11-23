@@ -30,7 +30,7 @@ namespace Finance
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
-            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges1 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
+            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges2 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties1 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties2 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties3 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
@@ -46,6 +46,7 @@ namespace Finance
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges1 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
             this.bunifuGradientPanel1 = new Bunifu.UI.WinForms.BunifuGradientPanel();
             this.bunifuPanel1 = new Bunifu.UI.WinForms.BunifuPanel();
             this.txtTimeToPayResult = new Bunifu.UI.WinForms.BunifuLabel();
@@ -67,6 +68,7 @@ namespace Finance
             this.bunifuLabel2 = new Bunifu.UI.WinForms.BunifuLabel();
             this.bunifuLabel1 = new Bunifu.UI.WinForms.BunifuLabel();
             this.chart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.btnSchedule = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.bunifuGradientPanel1.SuspendLayout();
             this.bunifuPanel1.SuspendLayout();
             this.pnlInput.SuspendLayout();
@@ -110,7 +112,7 @@ namespace Finance
             this.bunifuPanel1.Location = new System.Drawing.Point(0, 368);
             this.bunifuPanel1.Name = "bunifuPanel1";
             this.bunifuPanel1.ShowBorders = true;
-            this.bunifuPanel1.Size = new System.Drawing.Size(802, 160);
+            this.bunifuPanel1.Size = new System.Drawing.Size(591, 160);
             this.bunifuPanel1.TabIndex = 2;
             this.bunifuPanel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.bunifuPanel1_MouseDown);
             this.bunifuPanel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.bunifuPanel1_MouseMove);
@@ -122,7 +124,7 @@ namespace Finance
             this.txtTimeToPayResult.AutoEllipsis = false;
             this.txtTimeToPayResult.CursorType = null;
             this.txtTimeToPayResult.Font = new System.Drawing.Font("Segoe UI Symbol", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTimeToPayResult.Location = new System.Drawing.Point(628, 96);
+            this.txtTimeToPayResult.Location = new System.Drawing.Point(445, 96);
             this.txtTimeToPayResult.Name = "txtTimeToPayResult";
             this.txtTimeToPayResult.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.txtTimeToPayResult.Size = new System.Drawing.Size(88, 30);
@@ -137,7 +139,7 @@ namespace Finance
             this.txtInterestPaidResult.AutoEllipsis = false;
             this.txtInterestPaidResult.CursorType = null;
             this.txtInterestPaidResult.Font = new System.Drawing.Font("Segoe UI Symbol", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtInterestPaidResult.Location = new System.Drawing.Point(386, 96);
+            this.txtInterestPaidResult.Location = new System.Drawing.Point(253, 96);
             this.txtInterestPaidResult.Name = "txtInterestPaidResult";
             this.txtInterestPaidResult.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.txtInterestPaidResult.Size = new System.Drawing.Size(49, 30);
@@ -152,7 +154,7 @@ namespace Finance
             this.txtTotalPaidResult.AutoEllipsis = false;
             this.txtTotalPaidResult.CursorType = null;
             this.txtTotalPaidResult.Font = new System.Drawing.Font("Segoe UI Symbol", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTotalPaidResult.Location = new System.Drawing.Point(97, 96);
+            this.txtTotalPaidResult.Location = new System.Drawing.Point(57, 96);
             this.txtTotalPaidResult.Name = "txtTotalPaidResult";
             this.txtTotalPaidResult.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.txtTotalPaidResult.Size = new System.Drawing.Size(49, 30);
@@ -167,7 +169,7 @@ namespace Finance
             this.bunifuLabel10.AutoEllipsis = false;
             this.bunifuLabel10.CursorType = null;
             this.bunifuLabel10.Font = new System.Drawing.Font("Segoe UI Symbol", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuLabel10.Location = new System.Drawing.Point(616, 43);
+            this.bunifuLabel10.Location = new System.Drawing.Point(433, 43);
             this.bunifuLabel10.Name = "bunifuLabel10";
             this.bunifuLabel10.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.bunifuLabel10.Size = new System.Drawing.Size(109, 30);
@@ -182,7 +184,7 @@ namespace Finance
             this.bunifuLabel9.AutoEllipsis = false;
             this.bunifuLabel9.CursorType = null;
             this.bunifuLabel9.Font = new System.Drawing.Font("Segoe UI Symbol", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuLabel9.Location = new System.Drawing.Point(362, 43);
+            this.bunifuLabel9.Location = new System.Drawing.Point(229, 43);
             this.bunifuLabel9.Name = "bunifuLabel9";
             this.bunifuLabel9.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.bunifuLabel9.Size = new System.Drawing.Size(116, 30);
@@ -197,7 +199,7 @@ namespace Finance
             this.bunifuLabel8.AutoEllipsis = false;
             this.bunifuLabel8.CursorType = null;
             this.bunifuLabel8.Font = new System.Drawing.Font("Segoe UI Symbol", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuLabel8.Location = new System.Drawing.Point(80, 43);
+            this.bunifuLabel8.Location = new System.Drawing.Point(40, 43);
             this.bunifuLabel8.Name = "bunifuLabel8";
             this.bunifuLabel8.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.bunifuLabel8.Size = new System.Drawing.Size(92, 30);
@@ -212,7 +214,7 @@ namespace Finance
             this.bunifuLabel6.AutoEllipsis = false;
             this.bunifuLabel6.CursorType = null;
             this.bunifuLabel6.Font = new System.Drawing.Font("Segoe UI Symbol", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuLabel6.Location = new System.Drawing.Point(386, 7);
+            this.bunifuLabel6.Location = new System.Drawing.Point(253, 7);
             this.bunifuLabel6.Name = "bunifuLabel6";
             this.bunifuLabel6.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.bunifuLabel6.Size = new System.Drawing.Size(66, 30);
@@ -229,6 +231,7 @@ namespace Finance
             this.pnlInput.BorderColor = System.Drawing.Color.Transparent;
             this.pnlInput.BorderRadius = 0;
             this.pnlInput.BorderThickness = 1;
+            this.pnlInput.Controls.Add(this.btnSchedule);
             this.pnlInput.Controls.Add(this.btnCalculate);
             this.pnlInput.Controls.Add(this.bunifuTextBox1);
             this.pnlInput.Controls.Add(this.bunifuLabel4);
@@ -242,7 +245,7 @@ namespace Finance
             this.pnlInput.Location = new System.Drawing.Point(586, 0);
             this.pnlInput.Name = "pnlInput";
             this.pnlInput.ShowBorders = true;
-            this.pnlInput.Size = new System.Drawing.Size(216, 369);
+            this.pnlInput.Size = new System.Drawing.Size(216, 494);
             this.pnlInput.TabIndex = 1;
             this.pnlInput.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnlInput_MouseDown);
             this.pnlInput.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pnlInput_MouseMove);
@@ -267,11 +270,11 @@ namespace Finance
             this.btnCalculate.ColorContrastOnClick = 45;
             this.btnCalculate.ColorContrastOnHover = 45;
             this.btnCalculate.Cursor = System.Windows.Forms.Cursors.Default;
-            borderEdges1.BottomLeft = true;
-            borderEdges1.BottomRight = true;
-            borderEdges1.TopLeft = true;
-            borderEdges1.TopRight = true;
-            this.btnCalculate.CustomizableEdges = borderEdges1;
+            borderEdges2.BottomLeft = true;
+            borderEdges2.BottomRight = true;
+            borderEdges2.TopLeft = true;
+            borderEdges2.TopRight = true;
+            this.btnCalculate.CustomizableEdges = borderEdges2;
             this.btnCalculate.DialogResult = System.Windows.Forms.DialogResult.None;
             this.btnCalculate.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.btnCalculate.DisabledFillColor = System.Drawing.Color.Empty;
@@ -711,6 +714,98 @@ namespace Finance
             this.chart.MouseMove += new System.Windows.Forms.MouseEventHandler(this.chtInterest_MouseMove);
             this.chart.MouseUp += new System.Windows.Forms.MouseEventHandler(this.chtInterest_MouseUp);
             // 
+            // btnSchedule
+            // 
+            this.btnSchedule.AllowAnimations = true;
+            this.btnSchedule.AllowMouseEffects = true;
+            this.btnSchedule.AllowToggling = false;
+            this.btnSchedule.AnimationSpeed = 200;
+            this.btnSchedule.AutoGenerateColors = true;
+            this.btnSchedule.AutoRoundBorders = false;
+            this.btnSchedule.AutoSizeLeftIcon = true;
+            this.btnSchedule.AutoSizeRightIcon = true;
+            this.btnSchedule.BackColor = System.Drawing.Color.Transparent;
+            this.btnSchedule.BackColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(122)))), ((int)(((byte)(183)))));
+            this.btnSchedule.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSchedule.BackgroundImage")));
+            this.btnSchedule.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
+            this.btnSchedule.ButtonText = "View Debt\r\nSchedule";
+            this.btnSchedule.ButtonTextMarginLeft = 0;
+            this.btnSchedule.ColorContrastOnClick = 45;
+            this.btnSchedule.ColorContrastOnHover = 45;
+            this.btnSchedule.Cursor = System.Windows.Forms.Cursors.Default;
+            borderEdges1.BottomLeft = true;
+            borderEdges1.BottomRight = true;
+            borderEdges1.TopLeft = true;
+            borderEdges1.TopRight = true;
+            this.btnSchedule.CustomizableEdges = borderEdges1;
+            this.btnSchedule.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnSchedule.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
+            this.btnSchedule.DisabledFillColor = System.Drawing.Color.Empty;
+            this.btnSchedule.DisabledForecolor = System.Drawing.Color.Empty;
+            this.btnSchedule.FocusState = Bunifu.UI.WinForms.BunifuButton.BunifuButton.ButtonStates.Pressed;
+            this.btnSchedule.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSchedule.ForeColor = System.Drawing.Color.White;
+            this.btnSchedule.IconLeft = null;
+            this.btnSchedule.IconLeftAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSchedule.IconLeftCursor = System.Windows.Forms.Cursors.Default;
+            this.btnSchedule.IconLeftPadding = new System.Windows.Forms.Padding(11, 3, 3, 3);
+            this.btnSchedule.IconMarginLeft = 11;
+            this.btnSchedule.IconPadding = 10;
+            this.btnSchedule.IconRight = null;
+            this.btnSchedule.IconRightAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnSchedule.IconRightCursor = System.Windows.Forms.Cursors.Default;
+            this.btnSchedule.IconRightPadding = new System.Windows.Forms.Padding(3, 3, 7, 3);
+            this.btnSchedule.IconSize = 25;
+            this.btnSchedule.IdleBorderColor = System.Drawing.Color.Empty;
+            this.btnSchedule.IdleBorderRadius = 0;
+            this.btnSchedule.IdleBorderThickness = 0;
+            this.btnSchedule.IdleFillColor = System.Drawing.Color.Empty;
+            this.btnSchedule.IdleIconLeftImage = null;
+            this.btnSchedule.IdleIconRightImage = null;
+            this.btnSchedule.IndicateFocus = false;
+            this.btnSchedule.Location = new System.Drawing.Point(34, 411);
+            this.btnSchedule.Name = "btnSchedule";
+            this.btnSchedule.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
+            this.btnSchedule.OnDisabledState.BorderRadius = 1;
+            this.btnSchedule.OnDisabledState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
+            this.btnSchedule.OnDisabledState.BorderThickness = 1;
+            this.btnSchedule.OnDisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.btnSchedule.OnDisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(160)))), ((int)(((byte)(168)))));
+            this.btnSchedule.OnDisabledState.IconLeftImage = null;
+            this.btnSchedule.OnDisabledState.IconRightImage = null;
+            this.btnSchedule.onHoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(193)))), ((int)(((byte)(255)))));
+            this.btnSchedule.onHoverState.BorderRadius = 1;
+            this.btnSchedule.onHoverState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
+            this.btnSchedule.onHoverState.BorderThickness = 1;
+            this.btnSchedule.onHoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(193)))), ((int)(((byte)(255)))));
+            this.btnSchedule.onHoverState.ForeColor = System.Drawing.Color.White;
+            this.btnSchedule.onHoverState.IconLeftImage = null;
+            this.btnSchedule.onHoverState.IconRightImage = null;
+            this.btnSchedule.OnIdleState.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.btnSchedule.OnIdleState.BorderRadius = 1;
+            this.btnSchedule.OnIdleState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
+            this.btnSchedule.OnIdleState.BorderThickness = 1;
+            this.btnSchedule.OnIdleState.FillColor = System.Drawing.Color.DodgerBlue;
+            this.btnSchedule.OnIdleState.ForeColor = System.Drawing.Color.White;
+            this.btnSchedule.OnIdleState.IconLeftImage = null;
+            this.btnSchedule.OnIdleState.IconRightImage = null;
+            this.btnSchedule.OnPressedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(79)))), ((int)(((byte)(140)))));
+            this.btnSchedule.OnPressedState.BorderRadius = 1;
+            this.btnSchedule.OnPressedState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
+            this.btnSchedule.OnPressedState.BorderThickness = 1;
+            this.btnSchedule.OnPressedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(79)))), ((int)(((byte)(140)))));
+            this.btnSchedule.OnPressedState.ForeColor = System.Drawing.Color.White;
+            this.btnSchedule.OnPressedState.IconLeftImage = null;
+            this.btnSchedule.OnPressedState.IconRightImage = null;
+            this.btnSchedule.Size = new System.Drawing.Size(150, 59);
+            this.btnSchedule.TabIndex = 10;
+            this.btnSchedule.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnSchedule.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
+            this.btnSchedule.TextMarginLeft = 0;
+            this.btnSchedule.TextPadding = new System.Windows.Forms.Padding(0);
+            this.btnSchedule.UseDefaultRadiusAndThickness = true;
+            this.btnSchedule.Click += new System.EventHandler(this.btnSchedule_Click);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -753,5 +848,6 @@ namespace Finance
         private Bunifu.UI.WinForms.BunifuLabel bunifuLabel8;
         private Bunifu.UI.WinForms.BunifuLabel bunifuLabel6;
         private Bunifu.UI.WinForms.BunifuButton.BunifuButton btnCalculate;
+        private Bunifu.UI.WinForms.BunifuButton.BunifuButton btnSchedule;
     }
 }

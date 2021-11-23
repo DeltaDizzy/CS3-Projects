@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace Finance
 {
@@ -14,6 +16,7 @@ namespace Finance
     {
         LinkedList<KeyValuePair<double, double>> minPaymentLookup = new LinkedList<KeyValuePair<double, double>>();
         Point lastLocation = new Point();
+        CultureInfo ci = new CultureInfo("en-us");
         bool mouseDown = false;
         int payMonths = 0;
         double totalPaid = 0, interestPaid = 0, debtRemaining = 0;
@@ -21,7 +24,8 @@ namespace Finance
         Func<(double, double, int)> calculate;
         private Task<(double, double, int)> resultsTask;
         (double, double, int) results;
-        //TODO: CALCULATION AS TASK
+        frmSchedule debtsched = new frmSchedule();
+        public static LinkedList<KeyValuePair<int, double>> unpaid = new LinkedList<KeyValuePair<int, double>>();
 
         public frmMain()
         {
@@ -34,6 +38,8 @@ namespace Finance
             minPaymentLookup.AddLast(new KeyValuePair<double, double>(25, 1));
             minPaymentLookup.AddLast(new KeyValuePair<double, double>(0, 1));
 
+            chart.Series[0].ChartType = SeriesChartType.Line;
+            chart.Series[0].LegendText = "Unpaid Balance";
 
             calculate = () =>
             {
@@ -45,10 +51,14 @@ namespace Finance
                     double minPayRate = minPayPercentEval(debtRemaining);
                     double principalPaid = debtRemaining * minPayRate;
                     debtRemaining -= principalPaid;
-                    totalPaid += debtRemaining * (1 + (interestRate / 100 / 12));
+                    interestPaid += debtRemaining * (1 + (interestRate / 100 / 12));
+                    totalPaid += principalPaid + interestPaid;
                     payMonths++;
+                    unpaid.AddLast(new KeyValuePair<int, double>(payMonths, debtRemaining));
+                    debtsched.AddData(payMonths, principalPaid, interestPaid, principalPaid, debtRemaining);
                 }
-
+                results = (interestPaid, totalPaid, payMonths);
+                
                 return (interestPaid, totalPaid, payMonths);
             };
 
@@ -70,14 +80,19 @@ namespace Finance
             btnCalculate.Enabled = false;
             calculateAsync();
             btnCalculate.Enabled = true;
-            txtInterestPaidResult.Text = string.Format("${0:C2}", results.Item1.ToString());
-            txtTotalPaidResult.Text = string.Format("${0:C2}", results.Item2.ToString());
+            txtInterestPaidResult.Text = results.Item1.ToString("C2", ci);
+            txtTotalPaidResult.Text = results.Item2.ToString("C2", ci);
             txtTimeToPayResult.Text = $"{results.Item3} months";
         }
 
-        private async void calculateAsync()
+        private void calculateAsync()
         {
-            results = await Task.Run(calculate);
+            Task calcTask = Task.Run(calculate);
+            calcTask.Wait();
+            chart.Series[0].Points.DataBindXY(
+                unpaid.ToDictionary(p => p.Key).Keys.ToList(),
+                unpaid.ToDictionary(p => p.Value).Keys.ToList()
+                );
             ResetVars();
         }
 
@@ -86,6 +101,7 @@ namespace Finance
             totalPaid = 0;
             payMonths = 0;
             interestPaid = 0;
+            unpaid.Clear();
         }
 
         private void chtInterest_MouseUp(object sender, MouseEventArgs e)
@@ -138,6 +154,11 @@ namespace Finance
         {
             mouseDown = true;
             lastLocation = e.Location;
+        }
+
+        private void btnSchedule_Click(object sender, EventArgs e)
+        {
+            debtsched.ShowDialog();
         }
 
         private void bunifuPanel1_MouseMove(object sender, MouseEventArgs e)
