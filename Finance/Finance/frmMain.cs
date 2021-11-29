@@ -43,13 +43,22 @@ namespace Finance
 
             calculate = () =>
             {
+                double customAmount = 0;
                 double debtRemaining = double.Parse(txtInitialDebt.Text);
                 double interestRate = double.Parse(txtInterestRate.Text) / 100;
 
                 while (debtRemaining > 0)
                 {
-                    double minPayRate = minPayPercentEval(debtRemaining);
-                    double principalPaid = debtRemaining * minPayRate;
+                    double PayRate = 0;
+                    if (drpAmount.SelectedIndex == 1)
+                    {
+                        PayRate = txt
+                    }
+                    else if (drpAmount.SelectedIndex == 0)
+                    {
+                        PayRate = minPayPercentEval(debtRemaining);
+                    }
+                    double principalPaid = debtRemaining * PayRate;
                     debtRemaining -= principalPaid;
                     interestPaid += debtRemaining * (1 + (interestRate / 100 / 12));
                     totalPaid += principalPaid + interestPaid;
